@@ -45,7 +45,7 @@ yarn start
 * build , Cloudflare Workes
 
 ```
-yarn build
+yarn deploy
 ```
 
 ***
