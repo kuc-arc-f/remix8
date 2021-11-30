@@ -10,9 +10,6 @@ export let loader: LoaderFunction = async ({ params }) => {
   if (params.id === "shh-its-a-secret") {
     throw json({ webmasterEmail: "hello@remix.run" }, { status: 401 });
   }
-  if (params.id === "kaboom") {
-    lol();
-  }
   //data
   const data = await client.query({
     query: gql`
@@ -31,7 +28,7 @@ export let loader: LoaderFunction = async ({ params }) => {
   return { param: params.id, data: data.data.task};
 };
 
-export default function ParamDemo() {
+export default function taskShow() {
   let data = useLoaderData();
   let item = data.data;
 console.log(item);
@@ -76,7 +73,7 @@ export function CatchBoundary() {
     <>
       <h2>Oops!</h2>
       <p>{message}</p>
-      <p>
+      <p>CatchBoundary
         (Isn't it cool that the user gets to stay in context and try a different
         link in the parts of the UI that didn't blow up?)
       </p>
@@ -90,7 +87,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
     <>
       <h2>Error!</h2>
       <p>{error.message}</p>
-      <p>
+      <p>ErrorBoundary
         (Isn't it cool that the user gets to stay in context and try a different
         link in the parts of the UI that didn't blow up?)
       </p>

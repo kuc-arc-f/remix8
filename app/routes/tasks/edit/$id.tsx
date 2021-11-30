@@ -10,9 +10,6 @@ export let loader: LoaderFunction = async ({ params }) => {
   if (params.id === "shh-its-a-secret") {
     throw json({ webmasterEmail: "hello@remix.run" }, { status: 401 });
   }
-  if (params.id === "kaboom") {
-    lol();
-  }
   //data
   const data = await client.query({
     query: gql`
